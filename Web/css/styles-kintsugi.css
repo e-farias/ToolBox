@@ -1,0 +1,113 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    color: #000;
+}
+
+section {
+    padding: 80px 20px; 
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 36px;
+}
+
+p {
+    font-weight: normal;
+    font-size: 24px;
+}
+
+/*--- Navbar ---*/
+.navbar {
+    min-height: 80px;
+    padding: 16px 16px;
+    background-color: #fff;
+    /*box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.07);*/
+}
+
+.navbar a,
+.navbar button {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.navbar-brand {
+    color: #000000;
+    font-size: 36px;
+    line-height: 49px;
+    margin: auto;
+}
+
+.navbar .btn {
+    align-items: center;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+}
+
+/* nav-link */
+.underline-full {
+    width: 100%;
+    height: 5px;
+    border-bottom: 3px solid #000;
+    position: relative;
+    opacity: 0;
+}
+
+.btn:hover + .underline-full {
+    opacity: 1;
+}
+
+/* CTA BTN */
+#btn-cta {
+    height: 45px;
+    min-width: 148px;
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 30px;
+    border: 3px solid #000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+button#btn-cta:hover {
+    color: #000;
+    background-color: #fff;
+}
+
+button#btn-cta:active {
+    color: #fff;
+    background-color: #000;
+    box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* SECTIONS */
+
+.underline-title-start {
+    width: calc(100% - 75%);
+    height: 5px;
+    border-bottom: 3px solid #000;
+    position: relative;
+}
+
+/* SECTION HOME */
+
+#section-home {
+    min-height: 100%;
+}
+
+#section-home img {
+    display: flex;
+}
+
+/* SECTION 2 */
+
+/* SECTION CTA*/
+
+#section-cta {
+    background-image: linear-gradient(to bottom right, #fff, #f4f4f4);
+}
