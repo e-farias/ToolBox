@@ -19,34 +19,83 @@ p {
     font-size: 24px;
 }
 
+
 /*--- MENU: NAVBAR ---*/
-.navbar {
-    min-height: 15vh;
-    padding: 16px 16px;
+.menu-navbar {
+    min-height: 12vh;
     background-color: #fff;
-    /*box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.07);*/
+    box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.07);
+    display: flex;
+    align-items: center;
 }
-.navbar a,
-.navbar button {
-    font-weight: bold;
+.menu-links {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0px 0px 0px auto;
+}
+.menu-links li a button {
     text-transform: uppercase;
+    color: #000;
+    font-size: 17px;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
 }
 .navbar-brand {
-    color: #000000;
-    font-size: 36px;
-    line-height: 49px;
-    margin: auto;
-}
-.navbar .btn {
-    align-items: center;
-    text-align: center;
     color: #000;
-    font-weight: bold;
+    margin: 5px auto;
+}
+/*-- MENU SCREENS BREAKPOINTS --*/
+@media screen and (max-width: 768px){
+    
+    nav {
+        position: relative;
+    }
+    .menu-links {
+        position: fixed;
+        top: 12vh;
+        bottom: 0;
+        width: 100%;
+        height: 88vh;
+        background-color: #fff;
+        flex-direction: column;
+        z-index: 1;
+        clip-path: circle(45px at 93% -12%);
+        -webkit-clip-path: circle(45px at 93% -12%);
+        transition: all 1s ease-out;
+        pointer-events: none;
+    }
+    .menu-links.open {
+        clip-path: circle(45px at 93% -12%);
+        -webkit-clip-path: circle(185vh at 93% -12%);
+        pointer-events: all;
+    }
+    .hamburger {
+        position: absolute;
+        cursor: pointer;
+        right: 5%;
+        margin-right: auto;
+    }
+    .hamburger>.line {
+        width: 30px;
+        height: 3px;
+        background-color: #000;
+        margin: 5px;
+    }
+
+}
+@media screen and (min-width: 769px) and (max-width: 1440px){
+    .navbar-brand {
+        margin: 0px 20px !important;
+    }
 }
 
 /*-- SECTION: HOME --*/
 #section-home {
-    min-height: 85vh;
+    min-height: 88vh;
 }
 #section-home img {
     display: flex;
@@ -70,6 +119,7 @@ p {
     height: 45px;
     min-width: 148px;
     background-color: #000;
+    margin: 0px 15px;
     color: #fff;
     font-weight: bold;
     border-radius: 30px;
@@ -78,7 +128,7 @@ p {
 }
 button#btn-cta:hover {
     color: #000;
-    background-color: #fff;
+    background-color: transparent;
 }
 button#btn-cta:active {
     color: #fff;
