@@ -8,7 +8,7 @@
     color: #000;
 }
 section {
-    padding: 80px 20px; 
+    padding: calc(12vh + 80px) 20px; 
 }
 h1 {
     font-weight: bold;
@@ -19,14 +19,18 @@ p {
     font-size: 24px;
 }
 
-
 /*--- MENU: NAVBAR ---*/
 .menu-navbar {
+    overflow: hidden;
+    position: fixed;
+    min-width: 100vw;
     min-height: 12vh;
     background-color: #fff;
     box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.07);
     display: flex;
     align-items: center;
+    z-index: 1;
+    top: 0;
 }
 .menu-links {
     display: flex;
@@ -46,9 +50,11 @@ p {
 }
 .navbar-brand {
     color: #000;
+    font-size: 36px;
+    font-weight: bold;
     margin: 5px auto;
 }
-/*-- MENU SCREENS BREAKPOINTS --*/
+/*-- MENU: SCREENS BREAKPOINTS --*/
 @media screen and (max-width: 768px){
     
     nav {
@@ -73,17 +79,56 @@ p {
         -webkit-clip-path: circle(185vh at 93% -12%);
         pointer-events: all;
     }
-    .hamburger {
+
+    .btn-menu-links {
         position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 45px;
+        height: 45px;
         cursor: pointer;
         right: 5%;
         margin-right: auto;
+        transition: all 1s ease-in-out;
+        border-radius: 10px;
+        /*border: 3px solid #000;*/
     }
-    .hamburger>.line {
+    .btn-menu-links.open .hamburger {
+        transform: translateX(-45px);
+        background-color: transparent;
+        box-shadow: none;
+    }
+    .btn-menu-links.open .hamburger::before {
+        transform: rotate(45deg) translate(32px, -32px);
+    }
+    .btn-menu-links.open .hamburger::after {
+        transform: rotate(-45deg) translate(32px, 32px);
+    }
+    .hamburger {
         width: 30px;
-        height: 3px;
+        height: 4px;
         background-color: #000;
-        margin: 5px;
+        border-radius: 10px;
+        transition: all 0.5s ease-in-out;
+        box-shadow: 0 2px 5px rgba(73, 73, 73, 0.2);
+    }
+    .hamburger::before,
+    .hamburger::after {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 4px;
+        background-color: #000;
+        border-radius: 10px;
+        transition: all 0.5s ease-in-out;
+        box-shadow: 0 2px 5px rgba(73, 73, 73, 0.2);
+    }
+    .hamburger::before {
+        transform: translateY(-10px);
+    }
+    .hamburger::after {
+        transform: translateY(10px);
     }
 
 }
