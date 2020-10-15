@@ -1,0 +1,221 @@
+/*-- Main Styles --*/
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    color: #000;
+}
+section {
+    padding: 80px 20px; 
+}
+h1 {
+    font-weight: bold;
+    font-size: 36px;
+}
+p {
+    font-weight: normal;
+    font-size: 24px;
+}
+
+/*--- MENU: NAVBAR ---*/
+.menu-navbar {
+    overflow: hidden;
+    position: fixed;
+    min-width: 100vw;
+    height: 12vh;
+    background-color: #fff;
+    box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.07);
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    top: 0;
+}
+.menu-links {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0px 0px 0px auto;
+}
+.menu-links li a button {
+    text-transform: uppercase;
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+}
+.navbar-brand {
+    color: #000;
+    font-size: 36px;
+    font-weight: bold;
+    margin: 5px auto;
+}
+/*-- MENU: SCREENS BREAKPOINTS --*/
+@media screen and (max-width: 768px){
+    
+    nav {
+        position: relative;
+    }
+    .menu-links {
+        position: fixed;
+        top: 12vh;
+        bottom: 0;
+        width: 100%;
+        height: 88vh;
+        background-color: #fff;
+        flex-direction: column;
+        z-index: 1;
+        clip-path: circle(45px at 93% -12%);
+        -webkit-clip-path: circle(45px at 93% -12%);
+        transition: all 1s ease-out;
+        pointer-events: none;
+    }
+    .menu-links.open {
+        clip-path: circle(45px at 93% -12%);
+        -webkit-clip-path: circle(185vh at 93% -12%);
+        pointer-events: all;
+    }
+
+    .btn-menu-links {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 45px;
+        height: 45px;
+        cursor: pointer;
+        right: 5%;
+        margin-right: auto;
+        transition: all 1s ease-in-out;
+        border-radius: 10px;
+        /*border: 3px solid #000;*/
+    }
+    .btn-menu-links.open .hamburger {
+        transform: translateX(-45px);
+        background-color: transparent;
+        box-shadow: none;
+    }
+    .btn-menu-links.open .hamburger::before {
+        transform: rotate(45deg) translate(32px, -32px);
+    }
+    .btn-menu-links.open .hamburger::after {
+        transform: rotate(-45deg) translate(32px, 32px);
+    }
+    .hamburger {
+        width: 30px;
+        height: 4px;
+        background-color: #000;
+        border-radius: 10px;
+        transition: all 0.5s ease-in-out;
+        box-shadow: 0 2px 5px rgba(73, 73, 73, 0.2);
+    }
+    .hamburger::before,
+    .hamburger::after {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 4px;
+        background-color: #000;
+        border-radius: 10px;
+        transition: all 0.5s ease-in-out;
+        box-shadow: 0 2px 5px rgba(73, 73, 73, 0.2);
+    }
+    .hamburger::before {
+        transform: translateY(-10px);
+    }
+    .hamburger::after {
+        transform: translateY(10px);
+    }
+
+}
+@media screen and (min-width: 769px) and (max-width: 1440px){
+    .navbar-brand {
+        margin: 0 20px !important;
+    }
+    .menu-navbar {
+        padding: 10px 40px;
+    }
+}
+
+/*-- SECTION: HOME --*/
+#section-home {
+    padding-top: calc(12vh + 80px);
+    min-height: 88vh;
+}
+#section-home img {
+    display: flex;
+}
+/*-- MENU: SCREENS BREAKPOINTS --*/
+@media screen and (min-width: 769px) and (max-width: 1440px){
+    #section-home h1,
+    #section-home p {
+        text-align: left;
+    }
+}
+
+/*-- SECTION: 2 --*/
+#section-2 {
+    min-height: 85vh;
+    background-image: url('/img/backgrounds/bg-2.jpg');
+    background-position: center top;
+    background-size: cover;
+}
+
+/*-- SECTION: CTA --*/
+#section-cta {
+    background-image: linear-gradient(to bottom right, #fff, #f4f4f4);
+}
+
+/*-- ELEMENTS: BUTTONS --*/
+#btn-cta {
+    height: 45px;
+    min-width: 148px;
+    background-color: #000;
+    margin: 0px 15px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 30px;
+    border: 3px solid #000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+}
+button#btn-cta:hover {
+    color: #000;
+    background-color: transparent;
+}
+button#btn-cta:active {
+    color: #fff;
+    background-color: #000;
+    box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.2);
+}
+
+/*-- ELEMENTS: TEXTS --*/
+.section-title {
+    height: 100%;
+}
+
+/*-- ELEMENTS: LINES --*/
+.underline-title {
+    width: calc(100% - 75%);
+    height: 5px;
+    border-bottom: 3px solid currentColor;
+    position: relative;
+}
+@media screen and (max-width: 769px) {
+    .underline-title {
+        display: inline-block;
+    }
+}
+.underline-full {
+    width: 100%;
+    height: 5px;
+    border-bottom: 3px solid #000;
+    position: relative;
+    opacity: 0;
+}
+.btn:hover + .underline-full {
+    opacity: 1;
+}
