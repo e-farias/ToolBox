@@ -8,7 +8,7 @@
     color: #000;
 }
 section {
-    padding: calc(12vh + 80px) 20px; 
+    padding: 80px 20px; 
 }
 h1 {
     font-weight: bold;
@@ -24,7 +24,7 @@ p {
     overflow: hidden;
     position: fixed;
     min-width: 100vw;
-    min-height: 12vh;
+    height: 12vh;
     background-color: #fff;
     box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.07);
     display: flex;
@@ -42,7 +42,7 @@ p {
 .menu-links li a button {
     text-transform: uppercase;
     color: #000;
-    font-size: 17px;
+    font-size: 14px;
     font-weight: bold;
     font-style: normal;
     text-decoration: none;
@@ -134,22 +134,33 @@ p {
 }
 @media screen and (min-width: 769px) and (max-width: 1440px){
     .navbar-brand {
-        margin: 0px 20px !important;
+        margin: 0 20px !important;
+    }
+    .menu-navbar {
+        padding: 10px 40px;
     }
 }
 
 /*-- SECTION: HOME --*/
 #section-home {
+    padding-top: calc(12vh + 80px);
     min-height: 88vh;
 }
 #section-home img {
     display: flex;
 }
+/*-- MENU: SCREENS BREAKPOINTS --*/
+@media screen and (min-width: 769px) and (max-width: 1440px){
+    #section-home h1,
+    #section-home p {
+        text-align: left;
+    }
+}
 
 /*-- SECTION: 2 --*/
 #section-2 {
     min-height: 85vh;
-    background-image: url('/img/kintsugi/bg-2.jpg');
+    background-image: url('/img/backgrounds/bg-2.jpg');
     background-position: center top;
     background-size: cover;
 }
@@ -181,12 +192,22 @@ button#btn-cta:active {
     box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.2);
 }
 
+/*-- ELEMENTS: TEXTS --*/
+.section-title {
+    height: 100%;
+}
+
 /*-- ELEMENTS: LINES --*/
-.underline-title-start {
+.underline-title {
     width: calc(100% - 75%);
     height: 5px;
-    border-bottom: 3px solid #000;
+    border-bottom: 3px solid currentColor;
     position: relative;
+}
+@media screen and (max-width: 769px) {
+    .underline-title {
+        display: inline-block;
+    }
 }
 .underline-full {
     width: 100%;
