@@ -29,7 +29,7 @@ p {
     box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.07);
     display: flex;
     align-items: center;
-    z-index: 1;
+    z-index: 1000;
     top: 0;
 }
 .menu-links {
@@ -149,7 +149,6 @@ p {
 #section-home img {
     display: flex;
 }
-/*-- MENU: SCREENS BREAKPOINTS --*/
 @media screen and (min-width: 769px) and (max-width: 1440px){
     #section-home h1,
     #section-home p {
@@ -190,6 +189,46 @@ button#btn-cta:active {
     color: #fff;
     background-color: #000;
     box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.2);
+}
+.button-float {
+    display: none;
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    bottom: 16px;
+    right: 16px;
+    color: #fff;
+    background-color: #2EC8A6;
+    border-radius: 45px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    box-align: center;
+    -ms-flex-align: center;
+    -ms-flex-pack: center;
+    -moz-box-pack: center;
+    
+}
+.button-float:hover {
+    box-shadow: 0 7px 7px rgba(46, 200, 166, 0.5);
+}
+.button-float:active {
+    background-color: #28B193;
+    box-shadow: none;
+}
+.button-float .icon {
+    background-image: url("/img/icons/wpp-icon.svg");
+    width: 32px;
+    height: 32px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+@media screen and (max-width: 768px) {
+    .button-float {
+        display: flex !important;
+    }
 }
 
 /*-- ELEMENTS: TEXTS --*/
