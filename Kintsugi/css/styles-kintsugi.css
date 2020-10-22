@@ -191,9 +191,7 @@ p {
 .feed-itens a {
     background-color: #fff;
     display: inline-table;
-}
-.feed-itens a:hover {
-    transform: scale(1.1);
+    cursor: context-menu;
 }
 .feed-itens div>div {
     text-align: center;
@@ -223,6 +221,11 @@ p {
     border-radius: 25px;
     margin: 20px;
     padding: 0;
+}
+@media screen and (max-width: 768px) {
+    .feed-itens a {
+        max-width: 320px;
+    }
 }
 
 /*-- ELEMENTS: BUTTONS --*/
