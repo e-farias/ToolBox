@@ -69,8 +69,8 @@ p {
         background-color: #fff;
         flex-direction: column;
         z-index: 1;
-        clip-path: circle(45px at 93% -12%);
-        -webkit-clip-path: circle(45px at 93% -12%);
+        clip-path: circle(45px at 7% -12%);
+        -webkit-clip-path: circle(45px at 7% -12%);
         transition: all 1s ease-out;
         pointer-events: none;
     }
@@ -88,7 +88,7 @@ p {
         width: 45px;
         height: 45px;
         cursor: pointer;
-        right: 5%;
+        left: 5%;
         margin-right: auto;
         transition: all 1s ease-in-out;
         border-radius: 10px;
