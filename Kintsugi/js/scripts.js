@@ -3,7 +3,7 @@
 
     var $window = $(window);
     
-    // MENU BTN HAMBURGER
+    // BTN Menu Links
     $(window).on("load", function () {
 
         const menuLinks = document.querySelector(".menu-links");
@@ -42,6 +42,7 @@
 
     // Instagram Feed
     $(window).on("load", function () {
+
         document.addEventListener("gesturestart", function (e) {
             e.preventDefault();
         });
@@ -83,6 +84,10 @@
             lazy_load: false,
             on_error: console.error
         });
+    
     });
+
+    // Get Local Products
+    
 
 })(jQuery);
