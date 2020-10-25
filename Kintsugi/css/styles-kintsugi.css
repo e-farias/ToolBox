@@ -332,7 +332,7 @@ a:hover {
 .instagram-video {
     box-shadow: 0px 0px 76px -9px rgba(0, 0, 0, 0.1);
     border-radius: 25px;
-    margin: 20px;
+    margin: 20px auto;
     padding: 0;
 }
 @media screen and (max-width: 768px) {

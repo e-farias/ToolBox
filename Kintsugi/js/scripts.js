@@ -61,7 +61,7 @@
                                 ".feed-itens .instagram_gallery a"
                             )[i]
                         )
-                            .addClass("col-sm-6 col-md-3 col-lg-3 mb-5")
+                            .addClass("col-sm-3 mb-5")
                             .append(
                                 '<div class="p-3 w-100 d-flex flex-column mw-100">'+
                                     '<p class="fix-ellipsis">' + $(v).attr("alt").replace(/\n/g, "<br />") + '</p>'+
@@ -75,7 +75,7 @@
                 );
                 $(
                     ".feed-itens .instagram_gallery a img"
-                );
+                ).addClass("img-fluid");
             },
             styling: false,
             items: 3,
