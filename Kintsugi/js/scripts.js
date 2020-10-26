@@ -63,7 +63,7 @@
                         )
                             .addClass("col-sm-3 mb-5")
                             .append(
-                                '<div class="p-3 w-100 d-flex flex-column mw-100">'+
+                                '<div class="p-3 d-flex flex-column">'+
                                     '<p class="fix-ellipsis">' + $(v).attr("alt").replace(/\n/g, "<br />") + '</p>'+
                                     '<div><button class="btn mb-3" id="btn-orange-cut">VER MAIS</button></div>' +
                                 '</div>'

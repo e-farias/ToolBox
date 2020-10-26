@@ -296,6 +296,7 @@ a:hover {
 
 .feed-itens img {
     border-radius: 25px 25px 0px 0px;
+    min-width: 320px;
     max-height: 320px;
 }
 .feed-itens p {
