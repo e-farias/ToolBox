@@ -5,10 +5,10 @@
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
     font-style: normal;
-    color: #000;
 }
 section {
     padding: 100px 20px;
+    position: relative;
 }
 footer {
     padding: 100px 20px 20px;
@@ -20,6 +20,9 @@ h1 {
 p {
     font-weight: normal;
     font-size: 16px;
+}
+a {
+    color: #333;
 }
 a:hover {
     text-decoration: none;
@@ -369,27 +372,40 @@ a:hover {
 
 /*-- SECTION: LOCAL --*/
 #section-local {
-    background: linear-gradient(to bottom rigth, #fff 0%, #F4F4F4 50%, #F4F4F4 100%);
+    background: #F8FAFC;
 }
 #mycarousel-1 {
     display: flex;
     overflow: hidden;
-    max-height: 550px;
+    max-height: 350px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
 }
-#section-local .photo-item {
-    display: flex;
+#section-local .card {
     overflow: hidden;
+    max-height: 464px;
     border-radius: 10px;
-    margin: 15px;
     box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+}
+#section-local .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px 4px rgba(0, 0, 0, 0.25);
 }
 
 /*-- SECTION: CONTACT --*/
 #section-contact {
     min-height: 420px;
     background-image: linear-gradient( to bottom right, #333, #000);
+}
+
+/*-- ELEMENTS: SHAPES DIVIDERS --*/
+.shape-divider-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
 }
 
 /*-- ELEMENTS: BUTTONS --*/
@@ -542,6 +558,7 @@ a:hover {
 
 /*-- ELEMENTS: LINES --*/
 .underline-full {
+    color: #B6000B;
     width: 100%;
     height: 5px;
     border-bottom: 3px solid currentColor;
