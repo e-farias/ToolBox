@@ -61,14 +61,28 @@ a:hover {
     align-items: center;
     margin: 0px 0px 0px auto;
 }
-.menu-links li a button {
+.menu-links a {
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
     text-transform: uppercase;
+    padding: 12px 20px;
+    margin: auto 5px;
+}
+.menu-links a:hover {
     color: #000;
+}
+.menu-links a:active {
+    color: #FF5C00;
+}
+.menu-links button {
+    text-transform: uppercase;
+    color: #333;
     font-size: 14px;
     font-weight: bold;
     font-style: normal;
     text-decoration: none;
-    font-family: 'Open Sans', sans-serif;
 }
 .navbar-brand {
     color: #000;
@@ -623,15 +637,20 @@ a:hover {
 
 /*-- ELEMENTS: LINES --*/
 .underline-full {
-    color: #B6000B;
-    width: 100%;
-    height: 5px;
+    color: currentColor;
+    width: 65%;
+    height: 10px;
     border-bottom: 3px solid currentColor;
     position: relative;
+    margin: auto;
     opacity: 0;
 }
-.btn:hover + .underline-full {
+a:hover + .underline-full,
+a:active + .underline-full {
     opacity: 1;
+}
+.menu-links a:active + .underline-full {
+    color: #FF5C00;
 }
 
 .underline-start {
