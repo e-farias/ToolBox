@@ -182,9 +182,6 @@ a:hover {
 }
 
 /*-- SECTION: MAIN FEATURES --*/
-#section-main_features {
-    background-image: linear-gradient(to bottom right, #FFF, #F4F4F4);
-}
 #section-main_features .card {
     min-height: 412px;
     padding: 25px;
@@ -216,14 +213,13 @@ a:hover {
 
 /*-- SECTION: PRODUTCS --*/
 #section-products {
-    min-height: 100vh;
+    padding-top: 140px;
     background-image: url('/img/backgrounds/bg-waves.jpg') !important;
     background-position: center top;
     background-size: cover;
 }
 #section-products .section-title h1,
-#section-products a,
-#section-products p {
+#section-products .section-title p {
     color: #fff;
 }
 
@@ -249,27 +245,30 @@ a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #FF1C29;
+    background: linear-gradient(to bottom right, #FF1C29, #B6000B);
     clip-path: circle(200px at 110% 0%);
     transition: 0.5s ease-in-out;
 }
 .product-card:hover::before,
 .product-card:active::before {
-    clip-path: circle(270px at 80% -30%);
+    clip-path: circle(300px at 50% -60%);
 }
 .product-img {
     position: absolute;
     left: 0;
-    top: 40%;
+    top: 35%;
     transform: translateY(-50%);
     z-index: 10;
     width: 100%;
-    transition: 0.5s;
+    opacity: 1;
+    transition: 1s;
 }
 .product-card:hover .product-img,
 .product-card:active .product-img {
-    top: 35%;
+    top: -20%;
     transform: translateY(0%);
+    opacity: 0;
+    transition: opacity 0.5s linear;
 }
 .product-img img {
     position: absolute;
@@ -280,7 +279,7 @@ a:hover {
 }
 .product-content {
     position: absolute;
-    top: 70%;
+    top: 65%;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -290,25 +289,66 @@ a:hover {
 }
 .product-card:hover .product-content,
 .product-card:active .product-content {
-    top: 67%;
+    top: 7%;
 }
-.product-content h3 {
+.product-card h3 {
     color: #333;
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
     font-size: 24px;
     position: relative;
 }
+.product-card:hover h3,
+.product-card:active h3 {
+    color: #FFF;
+    margin: auto auto 40px;
+}
+.content-more {
+    margin: 20px auto;
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+.content-more img {
+    max-height: 35px;
+    margin: auto;
+}
+.product-card:hover .content-more,
+.product-card:active .content-more,
+.product-card:hover .content-more img,
+.product-card:active .content-more img{
+    opacity: 0;
+    visibility: hidden;
+    margin: auto;
+    max-height: 0px;
+}
+.product-card .product-text {
+    display: flex;
+    min-height: 185px;
+}
+.product-content p {
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0;
+    margin: auto;
+}
+.product-card:hover p,
+.product-card:active p {
+    opacity: 1;
+    transition: 1s;
+}
 .product-content button {
     margin: 10px;
     opacity: 0;
-    visibility: hidden;
 }
 .product-card:hover button,
 .product-card:active button {
     opacity: 1;
-    visibility: visible;
     transition: 1s;
+    position: absolute;
+    left: 20%;
+    bottom: inherit;
 }
 
 /*-- SECTION: CTA --*/
@@ -409,28 +449,6 @@ a:hover {
     margin: auto;
 }
 
-/*-- SECTION: LOCAL --*/
-#section-local {
-    background: #F8FAFC;
-}
-#mycarousel-1 {
-    display: flex;
-    overflow: hidden;
-    max-height: 350px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
-}
-#section-local .card {
-    overflow: hidden;
-    max-height: 464px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
-}
-#section-local .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 0px 15px 4px rgba(0, 0, 0, 0.25);
-}
-
 /*-- SECTION: CONTACT --*/
 #section-contact {
     min-height: 420px;
@@ -441,6 +459,14 @@ a:hover {
 .shape-divider-top {
     position: absolute;
     top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+.shape-divider-bottom {
+    position: absolute;
+    bottom: 0;
     left: 0;
     width: 100%;
     overflow: hidden;
@@ -539,7 +565,7 @@ a:hover {
     background-color: #2EC8A6;
     border-radius: 45px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    z-index: 1;
+    z-index: 100;
     justify-content: center;
     align-items: center;
     box-align: center;
