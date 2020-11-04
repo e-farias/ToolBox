@@ -34,6 +34,12 @@ a:hover {
 .text-dark {
     color: #000 !important;
 }
+.text-red {
+    color: #FF1C29;
+}
+.text-red_dark {
+    color: #B6000B;
+}
 
 /*--- MENU: NAVBAR ---*/
 .menu-navbar {
@@ -173,6 +179,39 @@ a:hover {
     #section-home p {
         text-align: left;
     }
+}
+
+/*-- SECTION: MAIN FEATURES --*/
+#section-main_features {
+    background-image: linear-gradient(to bottom right, #FFF, #F4F4F4);
+}
+#section-main_features .card {
+    min-height: 412px;
+    padding: 25px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.05);
+}
+#section-main_features .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px 4px rgba(0, 0, 0, 0.1);
+}
+#section-main_features .card-img-top {
+    max-height: 125px;
+    margin: auto;
+}
+#section-main_features .card-text {
+    padding: 0;
+    margin: auto;
+}
+#section-main_features p {
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+}
+#section-main_features a:hover,
+#section-main_features a:active {
+    color: #B6000B;
 }
 
 /*-- SECTION: PRODUTCS --*/
