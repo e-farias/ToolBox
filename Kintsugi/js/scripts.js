@@ -1,7 +1,8 @@
 (function ($) {
+
     "use strict";
 
-    var $window = $(window);
+    const $window = $(window);
     
     // BTN Menu Links
     $(window).on("load", function () {
@@ -31,9 +32,6 @@
                 menuLinks.classList.toggle("open");
                 btnMenuLinks.classList.remove("open");
                 btnMenuLinksOpen = false;
-            }
-            else {
-                pass;
             }
             
         });    
@@ -87,7 +85,63 @@
     
     });
 
-    // Get Local Products
-    
+    // Products Menu Tabs
+    $(window).on("load", function () {
+
+        const productCategory = document.getElementsByClassName("product-category");
+        const productsItems = document.getElementsByClassName("products-items");
+        var index;
+
+        function showProducts(productType) {
+
+            let productItem = document.getElementById(("products-"+productType));
+
+            if (productType == "all") {
+                for (index=0; index<productsItems.length; index++) {
+                    productsItems[index].style.display = "flex";
+                }
+            }
+            else {
+                for (index=0; index<productsItems.length; index++) {
+                    productsItems[index].style.display = "none";
+                }
+                productItem.style.display = "flex";
+            }
+            
+        }
+
+        for (index=0; index<productCategory.length; index++) {
+            
+            let id = productCategory[index].id
+
+            productCategory[index].addEventListener("click", () => {
+                showProducts(id);
+            });
+
+        }
+
+    });  
+
+    // Products Menu Sticky
+    $(window).on("load", function () {
+
+        const productMenu = document.getElementById("product-menu");
+        const sticky = productMenu.offsetTop;
+
+        function addStickyClass() {
+
+            if (window.pageYOffset > sticky) {
+              productMenu.classList.add("sticky");
+            } else {
+              productMenu.classList.remove("sticky");
+            }
+
+        }
+
+        $(window).on("scroll", function () {
+            //addStickyClass();
+        });
+
+    });
 
 })(jQuery);
