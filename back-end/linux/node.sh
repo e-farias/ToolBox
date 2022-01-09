@@ -1,12 +1,14 @@
 # JavaScript Environment
-curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh -o nvm_install.sh
-sh nvm_install.sh
-export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+sudo curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh -o nvm_install.sh
 
-exec "$SHELL"
+sudo sh nvm_install.sh
 
-nvm install --lts
-npm install --global yarn
-nvm install 13.13.0
+sudo export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+sudo exec "$SHELL"
+
+sudo nvm install --lts
+sudo npm install --global yarn
+sudo nvm install 13.13.0

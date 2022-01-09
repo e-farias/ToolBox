@@ -1,8 +1,8 @@
 # Check for updates
-apt update && apt upgrade
+sudo apt update && sudo apt upgrade
 
 # Linux Utils and Development Environment
-apt-get install -y zip unzip make build-essential libssl-dev zlib1g-dev curl wget systemd vim git-all
+sudo apt-get install -y zip unzip make build-essential libssl-dev zlib1g-dev curl wget systemd vim git-all
 
-sh node.sh
-sh python.sh
+sudo sh node.sh
+sudo sh python.sh
