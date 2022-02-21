@@ -1,0 +1,41 @@
+version: "3"
+
+services:
+
+  # Database
+  db-mysql:
+    image: mysql:5.7
+    container_name: db-mysql
+    restart: always
+    environment:
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: db_user_pass
+      MYSQL_ROOT_PASSWORD: "321654987"
+    ports:
+      - 5433:5433
+    volumes:
+      - /var/www/docker/volumes/mysql:/var/lib/mysql
+    networks:
+      - net-db-mysql
+  
+  # Admin
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - 16544:80
+    links:
+      - db-mysql
+    environment:
+      PMA_HOST: db-mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    networks:
+      - net-db-mysql
+
+networks:
+  net-db-mysql:
+    driver: bridge
+  
