@@ -1,4 +1,4 @@
-# Code Snippets and Templates Repository
+# ToolBox
 
 A ToolBox with code snippets and templates. Made with ☕.
 
