@@ -19,7 +19,6 @@ services:
       - net-db-mysql
   
   # Admin
-
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
@@ -38,4 +37,3 @@ services:
 networks:
   net-db-mysql:
     driver: bridge
-  
