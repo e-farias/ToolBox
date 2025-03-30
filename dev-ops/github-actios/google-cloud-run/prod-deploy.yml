@@ -1,0 +1,50 @@
+name: prod-deploy
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+
+  PROJECT_ID: "${{ secrets.GCP_PROJECT_ID }}"
+  REGION: "us-east1"
+  BUILD_NAME: "site_v-${{ github.sha }}"
+  SERVICE_NAME: "prod-site"
+
+jobs:
+
+  build-and-deploy:
+
+    name: Setup, Build, and Deploy
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # Authenticate with Google Cloud
+      - id: "auth"
+        uses: "google-github-actions/auth@v0"
+        with:
+          credentials_json: "${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}"
+
+      # Setup gcloud CLI/SDK
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v0
+
+      - name: Authorize Docker push
+        run: gcloud auth configure-docker
+
+      - name: Build tagged and Push the docker image on Google Container Registry (GCR)
+        run: |-
+          docker build . --tag gcr.io/${{ env.PROJECT_ID }}/${{ env.BUILD_NAME }}
+          docker push gcr.io/${{ env.PROJECT_ID }}/${{ env.BUILD_NAME }}
+      
+      - name: Deploy 1
+        run: |-
+          gcloud run deploy ${{ env.SERVICE_NAME }}-01 \
+          --region $REGION \
+          --image gcr.io/${{ env.PROJECT_ID }}/${{ env.BUILD_NAME }} \
+          --platform "managed" \
+          --quiet
