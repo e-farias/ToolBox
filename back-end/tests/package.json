@@ -1,0 +1,7 @@
+{
+  "name": "tests",
+  "version": "1.0.0",
+  "dependencies": {
+    "@prisma/client": "^3.9.0"
+  }
+}
