@@ -1,0 +1,26 @@
+# Search on recursive mode for world "firebase" in all files content inside the current path "./"  
+grep -rwi --color=auto --binary-files=without-match --exclude-dir={node_modules,dist,.git,yarn.lock,package-lock.json,.next,build,vendor,.turbo} "firebase" ./
+
+# Delete multiple folders recursive
+- find . -type d \( -name "node_modules" -o -name ".turbo" -o -name "dist" -o -name ".next" -o -name "build" -o -name "vendor" \) -exec rm -rf {} +
+- rm -rf **/{node_modules,.next,.turbo,dist,build,vendor}
+- fd --type d --glob '{node_modules,.next,.turbo,dist,build,vendor}' --exec rm -rf {}
+
+# How to check if port is in use
+sudo lsof -i -P -n | grep LISTEN
+
+# Access
+sudo chown -R $USER:$USER /mnt/Workspaces
+
+set utc: sudo timedatectl set-timezone America/Sao_Paulo
+
+# Import backup into docker mysql server 
+- docker ps
+- docker exec -i ${container_id} mysql -u root -p -e "RESET BINARY LOGS AND GTIDS; SET @@GLOBAL.GTID_PURGED='';"
+- password: ${root_password}
+- mysql -u root -p -h 127.0.0.1 -P 3306 ${database_name} < /mnt/e/FalaApp/backups/hml/dump-fala_app_hml-202512171625.sql
+- password: ${root_password}
+
+# Backup
+date_now=$(date +'%m/%d/%Y')
+sudo zip -R "backup_${date_now}.zip" repositories/ && sudo mv backup_* /mnt/d/Linux/Backups
