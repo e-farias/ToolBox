@@ -1,3 +1,0 @@
-Search on recursive mode for world "firebase" in all files content inside the current path "./"  
-  grep -rwi --color=auto --binary-files=without-match --exclude-dir={node_modules,dist,.git,yarn.lock,package-lock.json} "firebase" ./
-

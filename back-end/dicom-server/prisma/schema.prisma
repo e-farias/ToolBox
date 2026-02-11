@@ -1,0 +1,109 @@
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum UserRole {
+  AppAdmin
+  Admin
+  Desk
+}
+
+model User {
+  id        String   @id @default(cuid())
+  password  String
+  name      String
+  email     String?  @unique
+  phone     String?  @unique
+  createdAt DateTime @default(now())
+
+  permissons UserPermission[]
+}
+
+model UserPermission {
+  id         String     @id @default(cuid())
+  userId     String
+  instanceId String
+  roles      UserRole[]
+  createdAt  DateTime   @default(now())
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  instance Instance @relation(fields: [instanceId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@unique([userId, instanceId])
+  @@index([id])
+  @@index([userId])
+  @@index([instanceId])
+}
+
+model Instance {
+  id        String    @id @default(cuid())
+  subdomain String    @unique
+  name      String
+  status    Boolean   @default(true)
+  createdAt DateTime  @default(now())
+  deletedAt DateTime?
+
+  userPermissions UserPermission[]
+  aets            InstanceAet[]
+  config          InstanceConfig?
+  exams           InstanceExam[]
+
+  @@index([id])
+  @@index([subdomain])
+}
+
+model InstanceAet {
+  id                String @id @default(cuid())
+  instanceSubdomain String
+  name              String @unique
+
+  instance Instance @relation(fields: [instanceSubdomain], references: [subdomain], onDelete: Cascade, onUpdate: Cascade)
+
+  @@index([instanceSubdomain])
+  @@index([name])
+}
+
+model InstanceConfig {
+  id                   String  @id @default(cuid())
+  instanceId           String  @unique
+  logoUrl              String?
+  iconUrl              String?
+  colorPrimary         String
+  colorSuccess         String?
+  colorDanger          String?
+  colorWarn            String?
+  examImgHorizontalUrl String?
+  examImgIconUrl       String?
+  examImgAmountPerPage Int     @default(6)
+
+  instance Instance @relation(fields: [instanceId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@index([instanceId])
+}
+
+model InstanceExam {
+  id               String   @id @default(cuid())
+  instanceId       String
+  aetOnCreated     String
+  studyInstanceUID String
+  folderPath       String?
+  studyPatientId   String
+  patientName      String
+  patientPhone     String?
+  description      String
+  pdfUrl           String?
+  sent             Boolean  @default(false)
+  date             DateTime
+  createdAt        DateTime
+
+  instance Instance @relation(fields: [instanceId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@index([instanceId, studyInstanceUID])
+  @@index([patientName])
+}

@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: stremio-mongo
+    restart: always
+    ports:
+      - ${DB_PORT}:27017
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+
+  stremio-server:
+    image: stremio/server:latest
+    container_name: stremio-server
+    restart: always
+    depends_on:
+      - mongodb
+    ports:
+      - ${STREMIO_PORT}:11470
+    environment:
+      STREMIO_MONGO: "mongodb://admin:password@mongodb:27017"
+    command: ["/bin/sh", "-c", "node server.js"]
+
+volumes:
+  mongodb_data:
